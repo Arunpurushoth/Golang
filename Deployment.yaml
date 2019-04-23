@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-app
+  labels:
+    app: gohello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gohello
+  template:
+    metadata:
+      labels:
+        app: gohello
+    spec:
+      containers:
+      - name: gohello
+        image: myimage:v1.0
+        ports:
+        - containerPort: 80
+
